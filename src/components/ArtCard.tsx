@@ -6,7 +6,7 @@ type ArtCardProps = {
 
 export default function ArtCard({ art }: ArtCardProps) {
     return (
-        <div className="row d-flex justify-content-around m-3 g-4">
+        <div className="row d-flex justify-content-center m-3 g-4">
             <div className="col-12">
                 <img src={art.small} alt={art.description} className="img-fluid artborder" />
             </div>

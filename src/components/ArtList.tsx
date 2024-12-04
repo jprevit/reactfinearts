@@ -8,7 +8,7 @@ type ArtListProps = {
 function ArtList({ artworks }: ArtListProps) {
 
     return artworks.map(art =>
-        <div className="col-md-3" key={art.id}>
+        <div className="col-md-3 d-flex flex-column justify-content-center" key={art.id}>
             <ArtCard art={art} />
         </div>
     )
