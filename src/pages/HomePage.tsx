@@ -1,7 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function HomePage() {
-  const [count, setCount] = useState(0)
+
+  function getMovies() {
+    throw new Error("Function not implemented.");
+  }
+
+  useEffect(() => {
+    getMovies()
+  }, [])
 
   return (
     <div className="home-page">
@@ -13,3 +20,5 @@ export default function HomePage() {
     </div>
   )
 }
+
+

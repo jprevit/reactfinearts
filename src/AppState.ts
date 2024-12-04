@@ -2,12 +2,17 @@ import { action, makeAutoObservable } from "mobx"
 import { isValidProp } from "./utils/isValidProp.ts"
 import { Account } from './models/Account.js'
 import { Identity } from '@bcwdev/auth0provider-client'
+import { Artwork } from "./models/Artwork.ts"
 
 
 class ObservableAppState {
 
   identity: Identity | null = null
   account: Account | null = null
+  activeArt: Artwork | null = null
+  artworks: Artwork[] = []
+  currentPage: number = 0
+  maxPages: number = 0
 
   constructor() {
     makeAutoObservable(this)
