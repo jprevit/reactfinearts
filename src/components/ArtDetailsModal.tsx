@@ -1,23 +1,22 @@
+import { Children, ReactNode } from "react"
+import ArtDetails from "./ArtDetailsContent"
+import { Artwork } from "../models/Artwork"
+import { AppState } from "../AppState"
 
 type ModalProps = {
-    id: string,
-    title: string,
-    children: React.ReactNode
+    id: string
 }
 
-export default function ArtDetailsModal({ id, title, children }: ModalProps) {
+export default function ArtDetailsModal({ id }: ModalProps) {
 
     return (
 
-        <div className="modal" tabindex="-1" id={id}>
+        <div className="modal" tabIndex={-1} id={id}>
             <div className="modal-dialog modal-xl">
-                <div className="modal-content">
-                    <div className="modal-header">
-                        <h5 className="modal-title">{title}</h5>
-                        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div className="modal-body">
-                        <p>Modal body text goes here.</p>
+                <div className="modal-content container-fluid">
+                    <div className="modal-body row justify-content-center">
+                        <img src={AppState.activeArt?.full} className="img-fluid" />
+                        <p className="fs-5 col-6 col-md-10">{AppState.activeArt?.description}</p>
                     </div>
                 </div>
             </div>

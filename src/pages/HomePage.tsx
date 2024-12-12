@@ -5,6 +5,8 @@ import { artService } from "../services/ArtService";
 import { AppState } from "../AppState";
 import ArtList from "../components/Artlist";
 import { observer } from "mobx-react";
+import ArtDetailsModal from "../components/ArtDetailsModal";
+import ArtCard from "../components/ArtCard";
 
 function HomePage() {
 
@@ -22,6 +24,10 @@ function HomePage() {
     getArt()
   }, [])
 
+  // const ArtModalContent = () => (
+  //   AppState.activeArt ? <ArtCard art={AppState.activeArt} : <div></div>
+  // )
+
   return (
     <div className="home-page">
       <div className="container-fluid my-3">
@@ -29,7 +35,9 @@ function HomePage() {
           <ArtList artworks={AppState.artworks} />
         </div>
       </div>
+      <ArtDetailsModal id="artDetailsModal" title={AppState.activeArt?.description || ''} />
     </div>
+
   )
 }
 
