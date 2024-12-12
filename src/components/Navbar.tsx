@@ -31,8 +31,9 @@ export function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-3">
       <Link className="navbar-brand d-flex" to={''}>
-        <div className="d-flex flex-column align-items-center">
-          <img alt="logo" src='cw-logo.png' height="45" />
+        <div className="d-flex align-items-baseline">
+          <i class="mdi mdi-eye pe-3"></i>
+          <p>Fine Arts Gallery</p>
         </div>
       </Link>
       <button
