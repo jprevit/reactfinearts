@@ -1,6 +1,3 @@
-import { Children, ReactNode } from "react"
-import ArtDetails from "./ArtDetailsContent"
-import { Artwork } from "../models/Artwork"
 import { AppState } from "../AppState"
 
 type ModalProps = {

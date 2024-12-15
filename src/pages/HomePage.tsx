@@ -7,6 +7,7 @@ import ArtList from "../components/Artlist";
 import { observer } from "mobx-react";
 import ArtDetailsModal from "../components/ArtDetailsModal";
 import ArtCard from "../components/ArtCard";
+import Pagination from "../components/Pagination";
 
 function HomePage() {
 
@@ -33,6 +34,7 @@ function HomePage() {
       <div className="container-fluid my-3">
         <div className="row">
           <ArtList artworks={AppState.artworks} />
+          <Pagination />
         </div>
       </div>
       <ArtDetailsModal id="artDetailsModal" title={AppState.activeArt?.description || ''} />

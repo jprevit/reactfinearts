@@ -32,7 +32,7 @@ export function Navbar() {
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-3">
       <Link className="navbar-brand d-flex" to={''}>
         <div className="d-flex align-items-baseline">
-          <i class="mdi mdi-eye pe-3"></i>
+          <i className="mdi mdi-eye pe-3"></i>
           <p>Fine Arts Gallery</p>
         </div>
       </Link>
