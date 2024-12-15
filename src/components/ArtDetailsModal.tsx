@@ -23,9 +23,9 @@ export default function ArtDetailsModal({ id }: ModalProps) {
     useEffect(() => {
         const modalElement = document.getElementById(id)
         async function handleHide() {
-            logger.log('Modal hidden', AppState.activeArt)
+            // logger.log('Modal hidden', AppState.activeArt)
             await artService.setActiveNull()
-            logger.log('AppState.activeArt', AppState.activeArt)
+            // logger.log('AppState.activeArt', AppState.activeArt)
         }
 
         if (modalElement) {
