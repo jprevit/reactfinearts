@@ -10,6 +10,7 @@ function Pagination() {
     async function changePage(inc: number) {
         try {
             await artService.changePage(inc)
+            window.scrollTo({ top: 0, behavior: 'smooth' })
         }
         catch (error) {
             Pop.error(error as Error);
