@@ -20,7 +20,7 @@ class ArtService {
 
     async changePage(inc: number) {
         let response = await api.get(`api/artworks?page=${inc}`)
-        // console.log('change page response', response.data);
+        console.log('change page response', response.data);
         const arts = response.data.artworks.map((art: Artwork) => new Artwork(art))
         // console.log('arts', arts);
         AppState.artworks = arts
