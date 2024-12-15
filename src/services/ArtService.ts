@@ -12,6 +12,11 @@ class ArtService {
         AppState.activeArt = artToSet
         console.log('activeArt', AppState.activeArt);
     }
+
+    setActiveNull() {
+        AppState.activeArt = null
+    }
+
     async admireArt(artId: string) {
         await api.post(`api/artworks/${artId}/admire`)
         console.log('admired', artId);

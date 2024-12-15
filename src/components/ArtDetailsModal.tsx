@@ -1,26 +1,31 @@
-import React, { useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { AppState } from "../AppState"
+import Loading from "./Loading"
+import { logger } from "../utils/Logger";
+import { artService } from "../services/ArtService";
 
 type ModalProps = {
-    id: string
+    id: string;
+    title: string;
 }
 
 export default function ArtDetailsModal({ id }: ModalProps) {
-
-    const [imageSource, setImageSource] = useState(AppState.activeArt?.small)
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
         const image = new Image()
-        image.src = AppState.activeArt?.full || ""
+        image.src = AppState.activeArt?.small || '';
         image.onload = () => {
-            setImageSource(AppState.activeArt?.full)
+            setIsLoading(false)
         }
     }, [AppState.activeArt])
 
     useEffect(() => {
         const modalElement = document.getElementById(id)
-        const handleHide = () => {
-            AppState.activeArt = null
+        async function handleHide() {
+            logger.log('Modal hidden', AppState.activeArt)
+            await artService.setActiveNull()
+            logger.log('AppState.activeArt', AppState.activeArt)
         }
 
         if (modalElement) {
@@ -35,12 +40,15 @@ export default function ArtDetailsModal({ id }: ModalProps) {
     }, [id])
 
     return (
-
         <div className="modal" tabIndex={-1} id={id}>
             <div className="modal-dialog modal-xl">
                 <div className="modal-content container-fluid">
                     <div className="modal-body row justify-content-center">
-                        <img src={imageSource} className="img-fluid artborder artdetails" />
+                        {isLoading ? (
+                            <Loading />
+                        ) : (
+                            <img src={AppState.activeArt?.small} className="img-fluid artborder artdetails" />
+                        )}
                         <p className="fs-5 col-6 col-md-10">{AppState.activeArt?.description}</p>
                     </div>
                 </div>

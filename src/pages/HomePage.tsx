@@ -1,12 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { logger } from "../utils/Logger";
 import Pop from "../utils/Pop";
 import { artService } from "../services/ArtService";
 import { AppState } from "../AppState";
-import ArtList from "../components/Artlist";
+import ArtList from "../components/ArtList";
 import { observer } from "mobx-react";
 import ArtDetailsModal from "../components/ArtDetailsModal";
-import ArtCard from "../components/ArtCard";
 import Pagination from "../components/Pagination";
 
 function HomePage() {
@@ -24,10 +23,6 @@ function HomePage() {
   useEffect(() => {
     getArt()
   }, [])
-
-  // const ArtModalContent = () => (
-  //   AppState.activeArt ? <ArtCard art={AppState.activeArt} : <div></div>
-  // )
 
   return (
     <div className="home-page">
